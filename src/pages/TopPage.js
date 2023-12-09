@@ -11,14 +11,16 @@ const TopPage = ({
   countryData,
 }) => {
   return (
-    <div>
-      <Title />
-      <Selector
-        countriesJson={countriesJson}
-        setCountry={setCountry}
-        getCountryData={getCountryData}
-      />
-      <Results countryData={countryData} />
+    <div className="top-page-container">
+      <div>
+        <Title />
+        <Selector
+          countriesJson={countriesJson}
+          setCountry={setCountry}
+          getCountryData={getCountryData}
+        />
+        <Results countryData={countryData} />
+      </div>
     </div>
   );
 };

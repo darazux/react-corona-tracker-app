@@ -2,7 +2,7 @@
 
 const Selector = ({ countriesJson, setCountry, getCountryData }) => {
   return (
-    <div>
+    <div className="selector-container">
       <select onChange={(e) => setCountry(e.target.value)}>
         <option>Select A Country</option>
         {countriesJson.map((country, index) => (
