@@ -1,4 +1,5 @@
 // TopPage.js
+import Results from '../components/Results';
 import Selector from '../components/Selector';
 import Title from '../components/Title';
 
@@ -7,6 +8,7 @@ const TopPage = () => {
     <div>
       <Title />
       <Selector />
+      <Results />
     </div>
   );
 };
