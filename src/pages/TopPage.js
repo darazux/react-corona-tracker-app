@@ -1,14 +1,24 @@
 // TopPage.js
+
 import Results from '../components/Results';
 import Selector from '../components/Selector';
 import Title from '../components/Title';
 
-const TopPage = () => {
+const TopPage = ({
+  countriesJson,
+  setCountry,
+  getCountryData,
+  countryData,
+}) => {
   return (
     <div>
       <Title />
-      <Selector />
-      <Results />
+      <Selector
+        countriesJson={countriesJson}
+        setCountry={setCountry}
+        getCountryData={getCountryData}
+      />
+      <Results countryData={countryData} />
     </div>
   );
 };

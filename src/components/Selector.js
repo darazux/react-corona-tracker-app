@@ -1,17 +1,6 @@
 // Selector.js
 
-import { useState } from 'react';
-import countriesJson from '../countries.json';
-
-const Selector = () => {
-  const [country, setCountry] = useState('');
-  const getCountryData = () => {
-    fetch(
-      `https://proxy-server-node.vercel.app/corona-tracker-country-data?${country}`,
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+const Selector = ({ countriesJson, setCountry, getCountryData }) => {
   return (
     <div>
       <select onChange={(e) => setCountry(e.target.value)}>
