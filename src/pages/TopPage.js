@@ -10,6 +10,7 @@ const TopPage = ({
   setCountry,
   getCountryData,
   countryData,
+  loading,
 }) => {
   return (
     <div className="top-page-container">
@@ -21,7 +22,7 @@ const TopPage = ({
           setCountry={setCountry}
           getCountryData={getCountryData}
         />
-        <Results countryData={countryData} />
+        <Results countryData={countryData} loading={loading} />
       </div>
     </div>
   );

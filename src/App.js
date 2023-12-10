@@ -8,6 +8,7 @@ import './App.css';
 import WorldPage from './pages/WorldPage';
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [country, setCountry] = useState('');
   const [countryData, setCountryData] = useState({
     date: '',
@@ -17,6 +18,7 @@ function App() {
     totalRecovered: '',
   });
   const getCountryData = () => {
+    setLoading(true);
     fetch(
       `https://proxy-server-node.vercel.app/corona-tracker-country-data?${country}`,
     )
@@ -31,6 +33,7 @@ function App() {
             data[data.length - 1].Recovered - data[data.length - 2].Recovered,
           totalRecovered: data[data.length - 1].Recovered,
         });
+        setLoading(false);
       })
       .catch((err) =>
         alert(
@@ -64,6 +67,7 @@ function App() {
               setCountry={setCountry}
               getCountryData={getCountryData}
               countryData={countryData}
+              loading={loading}
             />
           }
         />
