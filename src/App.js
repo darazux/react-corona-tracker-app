@@ -1,10 +1,11 @@
 // App.js
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import countriesJson from './countries.json';
 import TopPage from './pages/TopPage';
 import './App.css';
+import WorldPage from './pages/WorldPage';
 
 function App() {
   const [country, setCountry] = useState('');
@@ -33,6 +34,20 @@ function App() {
       });
   };
 
+  const [allCountriesData, setAllCountriesData] = useState([]);
+  useEffect(() => {
+    fetch('https://proxy-server-node.vercel.app/corona-tracker-world-data')
+      .then((res) => res.json())
+      .then((data) => {
+        setAllCountriesData(data.Countries);
+      })
+      .catch((err) =>
+        alert(
+          'エラーが発生しました。ページをリロードして、もう一度トライしてください。',
+        ),
+      );
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -47,7 +62,10 @@ function App() {
             />
           }
         />
-        <Route path="/world" element={<p>ワールド</p>} />
+        <Route
+          path="/world"
+          element={<WorldPage allCountriesData={allCountriesData} />}
+        />
       </Routes>
     </BrowserRouter>
   );
