@@ -2,8 +2,7 @@
 
 const Card = ({ allCountriesData }) => {
   return (
-    <div>
-      {console.log(allCountriesData)}
+    <div className="card-container">
       {allCountriesData.map((singleData, index) => (
         <div key={index}>
           <h2>{singleData.Country}</h2>
