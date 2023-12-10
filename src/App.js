@@ -31,7 +31,12 @@ function App() {
             data[data.length - 1].Recovered - data[data.length - 2].Recovered,
           totalRecovered: data[data.length - 1].Recovered,
         });
-      });
+      })
+      .catch((err) =>
+        alert(
+          'エラーが発生しました。ページをリロードして、もう一度トライしてください。',
+        ),
+      );
   };
 
   const [allCountriesData, setAllCountriesData] = useState([]);
