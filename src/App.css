@@ -96,12 +96,19 @@ h1 {
   );
 }
 
-.selector-container > select:active,
 .selector-container > select:focus,
 .selector-container > select:hover {
   outline: 0;
   border: none;
   cursor: pointer;
+}
+
+.selector-container > select:active {
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  color: black;
+  /* background-color: #000; */
 }
 
 .selector-container > button {
