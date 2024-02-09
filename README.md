@@ -31,25 +31,25 @@ URL隠蔽の目的で中間にプロキシを経由させています。
        c0[Access Web App]
        c1[Select Country]
        c2[Click All Country]
-       c4[View Weather Result Data]
+       c4[View Corona Result Data]
    end
    subgraph Browser
        b1[Send HTTP Request]
-       b2[Receive Weather Data]
+       b2[Receive Corona Data]
    end
    subgraph react [React Framework]
        fw1[Send HTTP Request]
-       fw2[Receive Weather Data]
+       fw2[Receive Corona Data]
    end
    subgraph vercel [Vercel Web Hosting Service]
        react
    end
    subgraph Proxy
        p1[Forward HTTP Request]
-       p2[Foward Weather Data]
+       p2[Foward Corona Data]
    end
    subgraph API-Server
-       s1[Receive HTTP Request]-->s2[Send Weather Data]
+       s1[Receive HTTP Request]-->s2[Send Corona Data]
    end
 ```
 ## 動作
